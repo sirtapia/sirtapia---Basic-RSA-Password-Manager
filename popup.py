@@ -110,7 +110,7 @@ def customInput(parent, title, prompt, hide_input=False):
 
 
 def customMessage(parent, title, message):
-    """Custom themed message box (OK)."""
+    #Custom themed message box (OK).
     if parent is None:
         raise ValueError("customMessage requires a parent window; pass the main root window.")
 
@@ -147,4 +147,5 @@ def customMessage(parent, title, message):
     popup.update_idletasks()
     _center_over_parent(popup, parent, 360, 180)
     parent.wait_window(popup)
+
 
