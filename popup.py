@@ -1,7 +1,7 @@
 import tkinter as tk
 import os
 
-# ✅ Utility to center popup
+#Utility to center popup
 def _center_over_parent(popup, parent, w, h):
     """Center popup over parent if possible, otherwise on screen."""
     try:
@@ -17,7 +17,7 @@ def _center_over_parent(popup, parent, w, h):
     popup.geometry(f"{w}x{h}+{x}+{y}")
 
 
-# ✅ Utility to set icon safely
+#Utility to set icon safely
 def _set_icon(popup):
     """Try to apply icon.ico if available."""
     icon_path = os.path.join(os.path.dirname(__file__), "icon.ico")
@@ -40,16 +40,16 @@ def customInput(parent, title, prompt, hide_input=False):
     popup.configure(bg="#70552B")
     popup.resizable(False, False)
 
-    # ✅ Apply custom icon
+    #Apply custom icon
     _set_icon(popup)
 
-    # --- Header ---
+    #header 
     header = tk.Frame(popup, bg="#4A3B20")
     header.pack(fill="x")
     tk.Label(header, text=title, bg="#4A3B20", fg="white",
              font=("Helvetica", 10, "bold")).pack(side="left", padx=10, pady=4)
 
-    # --- Scrollable Area ---
+    #Scrollable Area
     mid_frame = tk.Frame(popup, bg="#70552B", height=130)
     mid_frame.pack(fill="both", expand=True, padx=8, pady=(6, 0))
     mid_frame.pack_propagate(False)
@@ -71,12 +71,12 @@ def customInput(parent, title, prompt, hide_input=False):
         canvas.yview_scroll(int(-1 * (event.delta / 120)), "units")
     canvas.bind_all("<MouseWheel>", _on_mousewheel)
 
-    # Prompt label
+    #Prompt label
     tk.Label(scroll_frame, text=prompt, bg="#70552B", fg="white",
              font=("Helvetica", 12), wraplength=340, justify="left").pack(
                  anchor="w", pady=(8, 8), padx=6)
 
-    # --- Bottom Entry Bar ---
+    # Bottom Entry Bar 
     bottom = tk.Frame(popup, bg="#4A3B20")
     bottom.pack(fill="x", side="bottom")
 
@@ -100,7 +100,7 @@ def customInput(parent, title, prompt, hide_input=False):
 
     entry.bind("<Return>", submit)
 
-    # --- Window Geometry ---
+    #Window Geometry 
     popup.update_idletasks()
     w, h = 380, 260
     _center_over_parent(popup, parent, w, h)
@@ -121,7 +121,7 @@ def customMessage(parent, title, message):
     popup.configure(bg="#70552B")
     popup.resizable(False, False)
 
-    # ✅ Apply custom icon
+    #apply custom icon
     _set_icon(popup)
 
     header = tk.Frame(popup, bg="#4A3B20")
@@ -147,3 +147,4 @@ def customMessage(parent, title, message):
     popup.update_idletasks()
     _center_over_parent(popup, parent, 360, 180)
     parent.wait_window(popup)
+
