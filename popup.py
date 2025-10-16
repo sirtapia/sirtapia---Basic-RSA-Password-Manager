@@ -3,7 +3,7 @@ import os
 
 #Utility to center popup
 def _center_over_parent(popup, parent, w, h):
-    """Center popup over parent if possible, otherwise on screen."""
+    #Center popup over parent if possible, otherwise on screen.
     try:
         parent.update_idletasks()
         px, py = parent.winfo_rootx(), parent.winfo_rooty()
@@ -19,7 +19,7 @@ def _center_over_parent(popup, parent, w, h):
 
 #Utility to set icon safely
 def _set_icon(popup):
-    """Try to apply icon.ico if available."""
+    #ry to apply icon.ico if available
     icon_path = os.path.join(os.path.dirname(__file__), "icon.ico")
     if os.path.exists(icon_path):
         try:
@@ -29,7 +29,7 @@ def _set_icon(popup):
 
 
 def customInput(parent, title, prompt, hide_input=False):
-    """Custom themed input popup with a scrollable prompt and fixed input bar."""
+    #Custom themed input popup with a scrollable prompt and fixed input bar.
     if parent is None:
         raise ValueError("customInput requires a parent window; pass the main root window.")
 
@@ -147,5 +147,6 @@ def customMessage(parent, title, message):
     popup.update_idletasks()
     _center_over_parent(popup, parent, 360, 180)
     parent.wait_window(popup)
+
 
 
